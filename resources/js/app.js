@@ -5,6 +5,8 @@ window.$ = require('jquery');
 import Vue from 'vue'
 
 import Dashboard from '../components/dashboard.vue'
+import Grid from '../components/grid.vue'
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -13,5 +15,5 @@ import Dashboard from '../components/dashboard.vue'
 
 const app = new Vue({
     el: '#app',
-    components: { Dashboard }
+    components: { Dashboard, Grid }
 });

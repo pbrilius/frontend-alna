@@ -4,4 +4,5 @@
 
 @section('content')
 <Dashboard></Dashboard>
+<Grid></Grid>
 @endsection()
