@@ -14,7 +14,7 @@
             placeholder="CSS3"
             minlength="6"
         >
-        <button type="submit">Submit</button>
+        <button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500">Submit</button>
     </form>
 </template>
 

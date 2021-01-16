@@ -19480,7 +19480,15 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Submit")]
+      )
     ]
   )
 }
