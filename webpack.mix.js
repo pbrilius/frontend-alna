@@ -18,3 +18,6 @@ mix.js("resources/js/app.js", "public/js").postCss(
 ).vue();
 
 mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.browserSync('localhost:2125');
+
