@@ -6,7 +6,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <div class="container" id="app">
+    <div class="container lg mx-auto px-5 md:container md:mx-auto" id="app">
+        <h1>@yield('title')</h1>
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
