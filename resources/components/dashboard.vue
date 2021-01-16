@@ -1,5 +1,5 @@
 <template>
-    <form action="localhost:2124/crawl" method="POST" class="form" v-on:submit="submitForm">
+    <form action="http://localhost:2124/crawl" method="POST" class="form" v-on:submit="submitForm">
         <input
             type="text"
             v-model="article.url"
@@ -14,7 +14,7 @@
             placeholder="CSS3"
             minlength="6"
         >
-        <button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500">Submit</button>
+        <button type="submit" class="bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500">Submit</button>
     </form>
 </template>
 
@@ -34,6 +34,16 @@ export default {
             event.preventDefault();
             event.stopPropagation();
             console.log('noted');
+            Axios.post(
+                $(event.target).attr('action'),
+                $(event.target).serializeArray()
+            )
+                .then(response => {
+                    console.log('OK');
+                })
+                .catch(err => {
+                    console.warn(err)
+                });
         }
     }
 }

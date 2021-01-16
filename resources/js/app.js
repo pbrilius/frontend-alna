@@ -1,5 +1,7 @@
 require('./bootstrap');
 
+window.$ = require('jquery');
+
 import Vue from 'vue'
 
 import Dashboard from '../components/dashboard.vue'
