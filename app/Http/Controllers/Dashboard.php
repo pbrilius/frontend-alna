@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class Dashboard extends Controller
 {
-    public function __invoke()
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(Request $request)
     {
         return view('home.dashboard');
     }
