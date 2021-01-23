@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('fontawesome');
 
 window.$ = require('jquery');
 
