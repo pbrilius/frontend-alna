@@ -39,14 +39,14 @@ export default {
     };
   },
   mounted() {
-    Axios.get("api/articles").then(
+    Axios.get("http://localhost:2124/api/articles").then(
       (response) => (this.articles = response.data)
     );
   },
   methods: {
     refreshGrid: function (event) {
       console.log("event propagation - refresh.");
-      Axios.get("api/articles").then(
+      Axios.get("http://localhost:2124/api/articles").then(
         (response) => (this.articles = response.data)
       );
     },

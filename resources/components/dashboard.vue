@@ -1,6 +1,6 @@
 <template>
   <form
-    action="http://localhost:2124/crawl"
+    action="http://localhost:2124/api/crawl"
     method="POST"
     class="form"
     v-on:submit="submitForm"
