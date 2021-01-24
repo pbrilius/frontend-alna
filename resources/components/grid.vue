@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container container-fluid ml-0 mr-0 pl-0 pr-0">
     <button
-      class="bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500 refresh"
+      class="btn btn-secondary"
       v-on:click="refreshGrid"
     >
       Load Crawl Data
     </button>
-    <table class="table">
+    <table class="table table-secondary mt-2">
       <thead>
         <tr>
           <th>ID</th>
