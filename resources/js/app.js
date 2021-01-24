@@ -3,7 +3,12 @@ require('./bootstrap');
 window.$ = require('jquery');
 require('@fortawesome/fontawesome-free')
 
-import Vue from 'vue'
+
+// import myLoading from 'vue-axios-loading'
+// const src='./static/Ellipsis-1s-200px.gif'
+
+import Vue from 'vue';
+// Vue.use(myLoading, src);
 
 import Dashboard from '../components/dashboard.vue'
 import Grid from '../components/grid.vue'

@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     refreshGrid: function (event) {
-      console.log("event propagation - refresh.");
       Axios.get("http://localhost:2124/api/articles").then(
         (response) => (this.articles = response.data)
       );

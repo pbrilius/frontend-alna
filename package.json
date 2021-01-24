@@ -29,6 +29,7 @@
         "@fortawesome/fontawesome-free": "^5.15.2",
         "bootstrap": "^4.6.0",
         "jquery": "^3.5.1",
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-axios-loading": "^1.0.6"
     }
 }

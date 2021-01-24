@@ -37,6 +37,7 @@
 
 <script>
 import Axios from "axios";
+
 export default {
   data() {
     return {
@@ -46,26 +47,50 @@ export default {
       },
     };
   },
+  mounted() {
+    // this.$loading.hide();
+  },
   methods: {
     submitForm: function (event) {
       event.preventDefault();
       event.stopPropagation();
-      console.log("noted");
+      $(event.target).find('button[type="submit"]').addClass("disabled");
       $('div[role="alert"]').addClass("d-none");
+
+      $(".progress")
+        .find('[role="progressbar"]')
+        .attr("aria-valuenow", "0")
+        .css("width", "0");
+
+      $(".progress")
+        .removeClass("d-none")
+        .fadeIn()
+        .find('[role="progressbar"]')
+        .attr("aria-valuenow", "50")
+        .css("width", "50%");
       Axios.post(
         $(event.target).attr("action"),
         $(event.target).serializeArray()
       )
         .then((response) => {
           console.log("OK");
+          // this.$loading.hide();
           $('div[role="alert"].alert-success')
             .html(response.data.site + "<br>" + response.data.css3)
             .toggleClass("d-none");
+          $(".progress")
+            .find('[role="progressbar"]')
+            .attr("aria-valuenow", "100")
+            .css("width", "100%");
+          $(".progress").fadeToggle("500", function () {
+            $(this).addClass("d-none");
+          });
+          $(event.target).find('button[type="submit"]').removeClass("disabled");
         })
         .catch((err) => {
-          console.warn(err);
-          console.log($('[role="alert"].alert-warning').length);
-          $('[role="alert"].alert-warning').html(err).toggleClass("d-none");
+          $('[role="alert"].alert-danger').html(err).toggleClass("d-none");
+          $(".progress").addClass("d-none");
+          $(event.target).find('button[type="submit"]').removeClass("disabled");
         });
     },
   },
