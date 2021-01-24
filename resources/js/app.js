@@ -1,7 +1,7 @@
 require('./bootstrap');
-require('fontawesome');
 
 window.$ = require('jquery');
+require('@fortawesome/fontawesome-free')
 
 import Vue from 'vue'
 

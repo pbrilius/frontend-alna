@@ -5,26 +5,33 @@
     class="form"
     v-on:submit="submitForm"
   >
-    <input
-      type="text"
-      v-model="article.url"
-      name="URL"
-      minlength="5"
-      placeholder="URL"
-    />
-    <input
-      type="text"
-      v-model="article.css3"
-      name="CSS3"
-      placeholder="CSS3"
-      minlength="6"
-    />
-    <button
-      type="submit"
-      class="bg-gradient-to-r from-green-400 to-blue-500 focus:from-pink-500 focus:to-yellow-500"
-    >
-      Submit
-    </button>
+    <div class="mb-3">
+      <label for="URL" class="form-label">URL</label>
+      <input
+        type="text"
+        v-model="article.url"
+        name="URL"
+        minlength="5"
+        placeholder="URL"
+        class="form-control"
+        id="URL"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="CSS3" class="form-label">CSS3</label>
+      <input
+        type="text"
+        v-model="article.css3"
+        name="CSS3"
+        placeholder="CSS3"
+        minlength="6"
+        id="CSS3"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </template>
 
@@ -44,18 +51,21 @@ export default {
       event.preventDefault();
       event.stopPropagation();
       console.log("noted");
-      $(".flash-message").addClass("d-none");
+      $('div[role="alert"]').addClass("d-none");
       Axios.post(
         $(event.target).attr("action"),
         $(event.target).serializeArray()
       )
         .then((response) => {
           console.log("OK");
-          $(".flash-message.success").toggleClass("d-none").html(response.data).show();
+          $('div[role="alert"].alert-success')
+            .html(response.data.site + "<br>" + response.data.css3)
+            .toggleClass("d-none");
         })
         .catch((err) => {
           console.warn(err);
-          $(".flash-message.error").toggleClass('d-none').html(err).show();
+          console.log($('[role="alert"].alert-warning').length);
+          $('[role="alert"].alert-warning').html(err).toggleClass("d-none");
         });
     },
   },
